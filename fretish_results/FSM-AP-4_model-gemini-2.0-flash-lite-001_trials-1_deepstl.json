@@ -1,0 +1,1 @@
+[{"output_LTL": "G(standby->(MODE&!(state_is_TRANSITION)&state_is_NOMINAL)U(state_is_STANDBY))"}]

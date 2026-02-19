@@ -1,0 +1,1 @@
+[{"explanation": "The statement \"The autopilot shall prop_0 when the prop_1 (standby)\" implies that prop_1 being true leads to prop_0 being true. This is a direct implication.", "output_LTL": "((standby) -> (state_is_NOMINAL & REQUEST & standby))"}]

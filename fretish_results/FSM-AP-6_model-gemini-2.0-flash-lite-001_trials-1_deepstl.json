@@ -1,0 +1,1 @@
+[{"output_LTL": "G((supported&good) -> (state_is_PULLUP & Xstate_is_TRANSITION)) & (!(supported&good) -> X(state_is_PULLUP & Xstate_is_TRANSITION))"}]

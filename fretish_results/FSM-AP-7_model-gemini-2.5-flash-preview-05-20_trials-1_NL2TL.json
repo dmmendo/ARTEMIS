@@ -1,0 +1,1 @@
+[{"explanation": "The phrase 'The autopilot shall prop_0 when the prop_1 (not standby)' implies a universal requirement. It means that at all times, if prop_1 (representing the non-standby state) is true, then prop_0 must also be true.", "output_LTL": "G ((!standby) -> (!state_is_STANDBY & state_is_TRANSITION))"}]

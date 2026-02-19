@@ -1,0 +1,1 @@
+[{"explanation": "The LTL formula expresses that whenever prop_0 holds, then prop_1 must also hold.  This is a simple implication, which is written as prop_0 -> prop_1.  It does not require any temporal operators, as it is a statement about the current state.", "output_LTL": "(not_Eclipse_equalTo_1) -> (sun_angle_lessThan_45)"}]

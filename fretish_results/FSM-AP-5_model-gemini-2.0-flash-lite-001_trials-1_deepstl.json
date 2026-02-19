@@ -1,0 +1,1 @@
+[{"output_LTL": "G((state_is_MANEUVER&standby&good) -> X(state_is_STANDBY)) & ((!(state_is_MANEUVER)&standby&good) -> (state_is_STANDBY))"}]

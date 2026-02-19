@@ -1,0 +1,1 @@
+[{"output_LTL": "G ((X (Op_Cmd_equalTo_Running) | Op_Cmd_equalTo_Running) -> F ((Spd_Act_greaterThanOrEqual_0) && (Spd_Act_lessThanOrEqual_1000)))"}]

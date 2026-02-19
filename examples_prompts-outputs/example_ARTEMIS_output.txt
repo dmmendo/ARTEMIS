@@ -1,0 +1,13 @@
+explanation: "The requirement states that an autopilot pullup must be latched when two conditions are met: the pilot is not in control, and the system is supported without failures. This is captured by setting the primary context (decision1) to 'whenever' bool_exp1, which combines the 'not standby', 'supported', and 'not apfail' conditions. Within this context, the specific trigger for the pullup is 'Exceeding sensor limits', which is represented by 'upon' bool_exp2 (limits). Finally, the action 'shall latch an autopilot pullup' is translated to 'immediately satisfy' bool_exp3 (pullup), implying that the pullup state is entered instantly upon the trigger, with 'latch' suggesting the state's persistence once entered."
+decision1: "whenever bool_exp1, _ABSTRACT_VAR1_"
+bool_exp1: "!standby & supported & !apfail"
+decision2: "upon bool_exp2, _ABSTRACT_VAR2_"
+bool_exp2: "limits"
+decision3: "immediately satisfy bool_exp3"
+bool_exp3: "pullup"
+bool_exp4: "null"
+N_DURATION: null
+decision1_substring: "when the pilot is not in control (not standby) and the system is supported without failures (not apfail)"
+decision2_substring: "Exceeding sensor limits"
+decision3_substring: "shall latch an autopilot pullup"
+output_structured_natural_language: "whenever !standby & supported & !apfail, upon limits, immediately satisfy pullup"

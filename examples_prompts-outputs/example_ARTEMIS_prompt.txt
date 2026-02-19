@@ -1,0 +1,32 @@
+You are an expert in Linear Temporal Logic and requirements engineering. Your job is to translate natural language requirements to structured natural language that capture the intents of the requirements.
+
+
+To produce the structured natural language property, you compose it from a set of templates.
+If the chosen option contains boolean expression placeholders (i.e., bool_exp1, bool_exp2, bool_exp3, bool_exp4), you need to produce boolean expressions that will replace the placeholders.
+Boolean expressions can only contain boolean operators (e.g., !, &, |, ->, <->) and can only atomic propositions (NO NUMERICAL COMPARISON OPERATORS ALLOWED)
+
+
+Inputs consist of:
+1. unstructured natural language (string)
+2. atomic proposition + descriptions (dictionary mapping names to descriptions). You must use these atomic propositions to define the boolean expressions and account for their descriptions in your decisions.
+
+The Outputs consist of the arguments to the produce_structured_nl function:
+1. an explanation of the produced structured NL property and how it captures the input_natural_language
+2. decision1 (should contain its placeholders names)
+3. bool_exp1
+4. decision2 (should contain its placeholders names)
+5. bool_exp2
+6. decision3 (should contain its placeholders names)
+7. bool_exp3
+8. bool_exp4
+9. N_DURATION
+10. decision1_substring (substring of input_natural_language that pertains to decision1)
+11. decision2_substring (substring of input_natural_language that pertains to decision2)
+12. decision3_substring (substring of input_natural_language that pertains to decision3)
+
+provide a list of the top 1 most likely translations (ordered by most likely first to least likely last) in the specified JSON format for the following:
+
+{
+"input_natural_language":"Exceeding sensor limits shall latch an autopilot pullup when the pilot is not in control (not standby) and the system is supported without failures (not apfail).",
+"atomic_propositions":{"standby": "True when the pilot is in control of the vehicle", "apfail": "Failure indication from an external source", "supported": "Indication of general health of system, must be True to enable operation", "limits": "External indication to sensor on faulty condition impeding safe operation.", "good": "Prior sensor output.  When false indicates a detected fault.", "MODE": "Autopilot internal moding discrete indicating not in transition state", "REQUEST": "Autopilot internal moding discrete indicating transition to a nominal operation", "pullup": "True when the autopilot is in the MANEUVER state", "state_is_TRANSITION": "indicates current state is TRANSITION", "state_is_STANDBY": "indicates current state is STANDBY", "state_is_NOMINAL": "indicates current state is NOMINAL", "state_is_MANEUVER": "indicates current state is MANEUVER", "state_is_PULLUP": "indicates current state is PULLUP"},
+}

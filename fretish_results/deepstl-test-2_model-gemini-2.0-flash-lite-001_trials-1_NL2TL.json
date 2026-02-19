@@ -1,0 +1,1 @@
+[{"explanation": "The natural language statement 'prop_0 is always in the range [10, 14]' translates to the LTL formula 'G(prop_0)' where prop_0 represents the proposition being in the range [10, 14] at any given state.", "output_LTL": "G((V_Sply_greaterThanOrEqual_10 & V_Sply_lessThanOrEqual_14))"}]

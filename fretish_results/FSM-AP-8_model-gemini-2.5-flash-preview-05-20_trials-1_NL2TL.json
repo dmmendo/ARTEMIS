@@ -1,0 +1,1 @@
+[{"explanation": "The formula states that globally, whenever 'prop_1' (autopilot failure) occurs, 'prop_0' (the required action) must eventually occur.", "output_LTL": "G ((apfail | limits | !good) -> F (state_is_STANDBY & REQUEST))"}]

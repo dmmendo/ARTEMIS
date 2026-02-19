@@ -1,0 +1,1 @@
+[{"explanation": "The statement implies that if prop_1 is true at any point, then prop_0 must also be true at that same point. This is a global implication.", "output_LTL": "G ((standby) -> (state_is_TRANSITION & REQUEST))"}]

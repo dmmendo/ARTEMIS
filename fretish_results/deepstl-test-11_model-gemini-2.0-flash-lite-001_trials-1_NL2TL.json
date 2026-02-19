@@ -1,0 +1,1 @@
+[{"explanation": "The prompt asks to formalize the following condition: whenever prop_0 holds, then prop_1 must hold within 5 time units. This can be done by using G (globally), -> (implication), F (eventually), and X (next).", "output_LTL": "G((Op_Cmd_equalTo_Passive) -> F(X(X(X(X((Spd_Act_equalTo_0)))))))"}]

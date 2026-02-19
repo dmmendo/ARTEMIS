@@ -1,0 +1,1 @@
+[{"explanation": "The prompt asks to translate \"Whenever prop_0 then in response prop_1 without any delay.\" to LTL. The LTL formula is G(prop_0 -> X prop_1).", "output_LTL": "G((Op_Cmd_equalTo_Running) -> X (Op_Ind_equalTo_Green))"}]

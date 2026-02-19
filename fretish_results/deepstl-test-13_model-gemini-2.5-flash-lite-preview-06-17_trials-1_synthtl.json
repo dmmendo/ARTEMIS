@@ -1,0 +1,1 @@
+[{"output_LTL": "G (((((Spd_Act_greaterThanOrEqual_100) && (Spd_Act_lessThanOrEqual_1000)))) -> X (!((V_Mot_lessThanOrEqual_12) && (V_Mot_greaterThanOrEqual_1))))"}]

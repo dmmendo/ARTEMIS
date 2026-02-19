@@ -1,0 +1,1 @@
+[{"explanation": "The statement expresses a global requirement: 'prop_0' shall be true whenever 'prop_1' and 'prop_2' are true. This translates to a global implication where the conjunction of 'prop_1' and 'prop_2' implies 'prop_0'.", "output_LTL": "G ( ((standby)&(good)) -> (state_is_MANEUVER & REQUEST & standby) )"}]

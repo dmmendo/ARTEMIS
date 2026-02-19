@@ -1,0 +1,1 @@
+[{"explanation": "The natural language statement \"If prop_0, then prop_1\" translates to an implication in LTL. This means that whenever prop_0 is true, prop_1 must also be true at the same time. If prop_0 is false, then the implication is vacuously true.", "output_LTL": "(RWs_angular_momentum_greaterThan_0.35) -> (RWs_torque_equalTo_0)"}]

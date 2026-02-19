@@ -1,0 +1,1 @@
+[{"explanation": "The LTL formula expresses that if prop_0 is true at any point in time, then prop_1 must also be true at that same time. This is a simple implication.", "output_LTL": "(not_Eclipse_equalTo_0) -> (sun_currents_equalTo_0)"}]

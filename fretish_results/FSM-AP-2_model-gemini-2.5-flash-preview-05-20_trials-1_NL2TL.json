@@ -1,0 +1,1 @@
+[{"explanation": "The requirement states that prop_0 must always be true whenever both prop_1 and prop_2 are true. This is expressed using a 'globally' operator for the universal truth, and an 'imply' operator for the conditional relationship.", "output_LTL": "G ( ((supported)&(good)) -> (state_is_TRANSITION & REQUEST) )"}]

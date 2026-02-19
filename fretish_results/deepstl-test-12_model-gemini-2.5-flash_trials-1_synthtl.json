@@ -1,0 +1,1 @@
+[{"output_LTL": "G (((((!(Op_Cmd_equalTo_Running)) && (X (Op_Cmd_equalTo_Running))))) -> (((G (F (Op_Cmd_equalTo_Running)))) || X ((G (F (Op_Cmd_equalTo_Running)))) || X (X ((G (F (Op_Cmd_equalTo_Running))))) || X (X (X ((G (F (Op_Cmd_equalTo_Running)))))) || X (X (X (X ((G (F (Op_Cmd_equalTo_Running))))))) || X (X (X (X (X ((G (F (Op_Cmd_equalTo_Running))))))))))"}]

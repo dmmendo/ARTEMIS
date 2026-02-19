@@ -1,0 +1,1 @@
+[{"explanation": "The LTL formula expresses that if prop_0 is true at any point, then prop_1 must also be true at that same point. This is achieved using the implication operator.", "output_LTL": "(!currentADCSMode_equalTo_NMC) -> (control_error_lessThanOrEqual_15)"}]
