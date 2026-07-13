@@ -4,7 +4,7 @@ import itertools
 def call_fret_formalize(fretish_str):
     try:
         command = [
-            "npm", "run", "--prefix", "/Users/USERNAMEHERE/fret/fret-electron", "--silent", "start-cli", "--", "formalize", "-l", "ft-inf",
+            "npm", "run", "--prefix", "/Users/dmendo/work_dir/fret/fret-electron", "--silent", "start-cli", "--", "formalize", "-l", "ft-inf",
             fretish_str
         ]
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -18,9 +18,7 @@ def call_fret_formalize(fretish_str):
 def generate_all_scope_options(scope_mode_list):
     scope_options = [""]
     for mode in scope_mode_list:
-        #for scope_option in ["before", "only before", "while", "when not in", "only while", "after", "only after"]:
-        for scope_option in ["only before", "while", "only while", "after", "only after"]:
-        #for scope_option in ["while", "only while"]:
+        for scope_option in ["before", "only before", "while", "when not in", "only while", "after", "only after","upon","whenever"]:
             scope_options.append(scope_option + " " + mode)
     return scope_options
 
@@ -67,3 +65,39 @@ def get_fretish_to_ltl_dict(scope_options,condition_options,component_options,ti
         else:
             print(cur_fretish,err_str)
     return fretish_to_ltl
+
+def get_proxy(timing,condition=None,res_exp="RES_EXP",stop_condition_exp=None,condition_exp=None):
+    if condition is None:
+        #timing proxy under any scope+condition
+        if "until" not in timing and "before" not in timing:
+            timing_fretish = get_fields_to_fretish(scope="",condition="",component='COMPONENT',timing=timing,response=res_exp)
+            #timing_ltl = fretish_to_ltl[timing_fretish]
+            timing_ltl,_ = call_fret_formalize(timing_fretish)
+            proxy = [timing_ltl]
+        elif "until" in timing:
+            weak_until = f"(({res_exp}) U ({stop_condition_exp}))" #strong until
+            strong_until = f"(({stop_condition_exp}) V (({stop_condition_exp}) | ({res_exp})))" #weak until
+            proxy = [weak_until,strong_until]
+        elif "before" in timing:
+            #strong_before = f"((({res_exp}) V (!({stop_condition_exp}))) & F ({stop_condition_exp}))" #strong before
+            strong_before = f"((({res_exp}) V (!({stop_condition_exp}))) & F ({res_exp}))" #strong before
+            weak_before = f"(({res_exp}) V (! ({stop_condition_exp})))" #weak before
+            proxy = [strong_before,weak_before]
+    else:
+        #condition+timing proxy under any scope
+        timing_proxy_list = get_proxy(timing=timing,condition=None,res_exp=res_exp,stop_condition_exp=stop_condition_exp)
+        if "whenever" in condition:
+            proxy = []
+            for timing_proxy in timing_proxy_list:
+                proxy.append(f"!(G (({condition_exp}) -> !({timing_proxy})))")
+                proxy.append(f"(G (({condition_exp}) -> ({timing_proxy})))")
+            proxy.append(f"!({condition_exp})")
+        elif "upon" in condition:
+            proxy = []
+            for timing_proxy in timing_proxy_list:
+                proxy.append(f"!((G (((! ({condition_exp})) & (X ({condition_exp}))) -> (X !({timing_proxy}))) & (({condition_exp}) -> !({timing_proxy}))))")
+                proxy.append(f"((G (((! ({condition_exp})) & (X ({condition_exp}))) -> (X ({timing_proxy}))) & (({condition_exp}) -> ({timing_proxy}))))")
+            proxy.append(f"!({condition_exp})")
+        elif condition == "":
+            proxy = timing_proxy_list
+    return proxy
